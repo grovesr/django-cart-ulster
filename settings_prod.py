@@ -40,8 +40,8 @@ DEBUG = False
 TEMPLATE_DEBUG = False
 
 #ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['arceny.ulstercorps.org',
-                 'www.arceny.ulstercorps.org',]
+ALLOWED_HOSTS = ['ucart.ulstercorps.org',
+                 'www.ucart.ulstercorps.org',]
 
 
 # Application definition
@@ -104,7 +104,7 @@ PAGE_SIZE=17
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-STATIC_ROOT = '/home3/ulsterc3/public_html/arc/eny/static'
+STATIC_ROOT = '/home3/ulsterc3/public_html/cart/ulster/static'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
