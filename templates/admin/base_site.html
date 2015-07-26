@@ -1,0 +1,13 @@
+{% extends "admin/base.html" %}
+{% load staticfiles %}
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'base/css/base_style.css' %}" type="text/css" >
+{% endblock extrastyle %}
+{% block title %}{{ title }} | {{ site_title|default:_('CART site admin') }}{% endblock %}
+
+{% block branding %}
+    <img src="{% static 'base/img/UCART-300x150.png' %}" width="300px"/>
+    <div id="branding-border" style="background:url({% static 'base/img/UCART-300x20.png' %})"> </div>
+{% endblock branding%}
+{% block nav-global %}{% include "base/nav_global.html" with nav_admin=1 %}{% endblock %}
