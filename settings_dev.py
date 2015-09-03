@@ -101,7 +101,7 @@ LOGIN_URL='/accounts/login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-STATIC_ROOT = '/var/www/html/arc/cart_ulster/static_root'
+STATIC_ROOT = '/var/www/html/cart/cart_ulster/static_root'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
