@@ -8,8 +8,8 @@ https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
 """
 import os
 import sys
-sys.path.append("/home/grovesr/.virtualenvs/ims/local/lib/python2.7/site-packages")
-sys.path.append("/home/grovesr/git/cart-regions/cart-ulster")
+sys.path.append("/home3/ulsterc3/Rob/PythonDev/.virtualenvs/ims/local/lib/python2.7/site-packages")
+sys.path.append("/home3/ulsterc3/Rob/PythonDev/cart-regions/cart-ulster")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "cart_ulster.settings")
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
