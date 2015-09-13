@@ -6,5 +6,6 @@ Backups/*
 .*~
 tempCommitComments.txt
 static_root/
+uploads/
 *pyc
 *log
