@@ -41,8 +41,8 @@ DEBUG = False
 TEMPLATE_DEBUG = False
 
 #ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['ucart.ulstercorps.org',
-                 'www.ucart.ulstercorps.org',]
+ALLOWED_HOSTS = ['cart.ulstercorps.org',
+                 'www.cart.ulstercorps.org',]
 
 
 # Application definition
