@@ -16,7 +16,7 @@ class PageNotFoundViewTests(TestCase):
         
     def test_page_not_found_view(self):
         print 'running PageNotFoundViewTests.test_page_not_found_view... '
-        self.assertTrue(urls.handler500.endswith('.handler500'))
+        self.assertTrue(urls.handler404.endswith('.handler404'))
         request = self.factory.get('/')
         response = handler404(request)
         self.assertEqual(response.status_code, 404)
