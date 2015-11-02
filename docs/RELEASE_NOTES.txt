@@ -1,4 +1,4 @@
-Version 1.2.0:
+11/1/15 Version 1.2.0:
 * f31a986 fix:fix 404 test to reference 404 handler
 * 7dacdd8 fix 404.html to reference cart_help.html, rather than rather than redcross_help.html
 * d48c2b2 really add template vars for adminName, adminEmail this time!
