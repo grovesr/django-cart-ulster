@@ -150,8 +150,8 @@ STATICFILES_DIRS = (
 )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'),
-                 '/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/templates',
-                 #'ims/templates',
+                 #'/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/templates',
+                 'ims/templates',
                  ]
 # SITE_ADMIN will display as contact person on each page
 SITE_ADMIN = ('Rob Groves','robert.groves@redcross.org')
