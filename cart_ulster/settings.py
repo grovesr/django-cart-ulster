@@ -45,6 +45,9 @@ def get_secret(setting, secrets=secrets):
 
 PICTURE_SIZE = 600
 THUMBNAIL_SIZE = 90
+PRODUCT_INFORMATION_FORM_ADDED_FIELDS = ['warehouseLocation',
+                'canExpire', 'expirationDate', 'expirationNotes', 'costPerItem',
+                'picture']
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_secret('CART_ULSTER_SECRET')
@@ -145,13 +148,13 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
-    '/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/static',
-    #'ims/static',
+    #'/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/static',
+    'ims/static',
 )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'),
-                 '/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/templates',
-                 #'ims/templates',
+                 #'/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/templates',
+                 'ims/templates',
                  ]
 # SITE_ADMIN will display as contact person on each page
 SITE_ADMIN = ('Rob Groves','robert.groves@redcross.org')

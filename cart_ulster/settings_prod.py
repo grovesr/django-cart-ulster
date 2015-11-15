@@ -45,6 +45,9 @@ def get_secret(setting, secrets=secrets):
 
 PICTURE_SIZE = 600
 THUMBNAIL_SIZE = 90
+PRODUCT_INFORMATION_FORM_ADDED_FIELDS = ['warehouseLocation',
+                'canExpire', 'expirationDate', 'expirationNotes', 'costPerItem',
+                'picture']
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_secret('CART_ULSTER_SECRET')
