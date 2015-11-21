@@ -146,6 +146,8 @@ MEDIA_ROOT = '/var/www/html/cart/cart_ulster/uploads'
 MEDIA_URL = '/uploads/'
 STATIC_URL = '/static/'
 
+TEMP_DIR = '/tmp'
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
     #'/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/static',

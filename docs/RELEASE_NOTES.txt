@@ -12,3 +12,5 @@
 * 8185ea0 (HEAD, master) add help on product code explanation and generation
 15/11/2015 Version 1.3.2:
 * de84895 (HEAD, master) add PRODUCT_INFORMATION_FORM_ADDED_FIELDS to settings
+21/11/2015 Version 1.3.3:
+* d2cde81 (HEAD, master) add TEMP_DIR setting
