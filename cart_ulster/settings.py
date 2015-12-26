@@ -45,6 +45,7 @@ def get_secret(setting, secrets=secrets):
 
 PICTURE_SIZE = 600
 THUMBNAIL_SIZE = 90
+PAGE_SIZE = 20
 PRODUCT_INFORMATION_FORM_ADDED_FIELDS = ['warehouseLocation',
                 'canExpire', 'expirationDate', 'expirationNotes', 'costPerItem',
                 'picture']
@@ -53,8 +54,6 @@ PRODUCT_INFORMATION_FORM_ADDED_FIELDS = ['warehouseLocation',
 SECRET_KEY = get_secret('CART_ULSTER_SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-TEMPLATE_DEBUG = False
 
 #ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['.cart.ulstercorpsdev.org',
@@ -85,16 +84,34 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-# add request so we can access request url in 404 handler page
-TEMPLATE_CONTEXT_PROCESSORS = (
-"django.contrib.auth.context_processors.auth",
-"django.core.context_processors.debug",
-"django.core.context_processors.i18n",
-"django.core.context_processors.media",
-"django.core.context_processors.static",
-"django.core.context_processors.tz",
-"django.contrib.messages.context_processors.messages",
-"django.core.context_processors.request"
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+                 os.path.join(BASE_DIR, 'templates'),
+                 '/home/grovesr/.virtualenvs/rims-django1.9/local/lib/python2.7/site-packages/ims/templates',
+                 #'ims/templates',
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'debug':DEBUG,
+            'context_processors': [
+                #add request so we can access request url in 404 handler page:
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                "django.template.context_processors.request",
+            ],
+        },
+    },
+]
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
 )
 
 ROOT_URLCONF = 'cart_ulster.urls'
@@ -148,16 +165,6 @@ STATIC_URL = '/static/'
 
 TEMP_DIR = '/tmp'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-    #'/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/static',
-    'ims/static',
-)
-
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'),
-                 #'/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/templates',
-                 'ims/templates',
-                 ]
 # SITE_ADMIN will display as contact person on each page
 SITE_ADMIN = ('Rob Groves','robert.groves@redcross.org')
 # add other admins if you like to be contacted in case of errors
