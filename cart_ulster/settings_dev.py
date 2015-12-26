@@ -45,6 +45,7 @@ def get_secret(setting, secrets=secrets):
 
 PICTURE_SIZE = 600
 THUMBNAIL_SIZE = 90
+PAGE_SIZE = 20
 PRODUCT_INFORMATION_FORM_ADDED_FIELDS = ['warehouseLocation',
                 'canExpire', 'expirationDate', 'expirationNotes', 'costPerItem',
                 'picture']

@@ -14,3 +14,5 @@
 * de84895 (HEAD, master) add PRODUCT_INFORMATION_FORM_ADDED_FIELDS to settings
 21/11/2015 Version 1.3.3:
 * d2cde81 (HEAD, master) add TEMP_DIR setting
+26/11/2015 Version 1.4.0:
+* 9fe56c3 (HEAD, tag: v1.4.0, pagination, master) feat: Update for paging and small style updates.
