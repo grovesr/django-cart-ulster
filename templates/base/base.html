@@ -16,17 +16,20 @@
             <span id="user-management">
                 {% block user-management %}
                     {% if user.is_authenticated %}
-                         welcome: <strong>{{ user.username }}.</strong>:
+                         welcome: <strong>{{ user.username }}</strong>&nbsp:
                          {% if user.has_usable_password %}
-                            <a href="{% url 'admin:password_change' %}">Change password / </a>
+                            <a href="{% url 'password_change' %}?next={{ request.get_full_path }}">Change password / </a>
                          {% endif %}
                          <a href="{% url 'logout' %}?next=/">
                              Logout
                          </a>
                      {% else %}
                         welcome:
-                        <a href="{% url 'login' %}?next=/">
-                              Login
+                        <a href="{% url 'login' %}">
+                              Login / 
+                         </a>
+                         <a href="{% url 'password_reset' %}">
+                             Forgot password
                          </a>
                     {% endif %}
                 {% endblock user-management %}
@@ -57,7 +60,7 @@
             {% block announcement %}
             {% endblock announcement %}
             {% block content %}
-                <h1>Ulster County Animal Respnse Team Web apps</h1>
+                <h1>Ulster County Animal Response Team Web apps</h1>
                 <h4>hosted by <a href="http://www.ulstercorps.org">UlsterCorps.org</a></h4>
             {% endblock content%}
         </div>

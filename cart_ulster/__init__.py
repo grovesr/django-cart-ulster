@@ -7,4 +7,5 @@
 #VERSION=('1.3.2','15/11/2015','add PRODUCT_INFORMATION_FORM_ADDED_FIELDS to settings')
 #VERSION=('1.3.3','21/11/2015','add TEMP_DIR setting')
 #VERSION=('1.4.0','26/12/2015','feat: Update for paging and small style updates.')
-VERSION=('1.5.0','28/12/2015','feat: Update to Django 1.9 from 1.7')
+#VERSION=('1.5.0','28/12/2015','feat: Update to Django 1.9 from 1.7')
+VERSION=('1.5.1','29/12/2015','feat: Add password management features')

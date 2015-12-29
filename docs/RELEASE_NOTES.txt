@@ -19,3 +19,5 @@ NOTE!! Messed up git commit of v1.5.0.  Most of it ended up --amend'ed to v1.4.0
 * 9fe56c3 (HEAD, tag: v1.4.0, pagination, master) feat: Update for paging and small style updates.
 28/12/2015 Version 1.5.0:
 *   bf5d870 (HEAD, master) Updated to Django1.9 from 1.7
+29/12/2015 Version 1.5.1:
+* 97e1efb (HEAD, master) feat: Add password management features
