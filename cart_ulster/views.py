@@ -20,15 +20,44 @@ try:
 except AttributeError:
     imsVersion=''
 
+def get_session_messages(request):
+    if 'errorMessage' in request.session:
+        errorMessage = request.session['errorMessage']
+        errorMessage = errorMessage.replace('\n','<br />')
+    else:
+        errorMessage = ''
+    request.session['errorMessage'] = ''
+    if 'warningMessage' in request.session:
+        warningMessage = request.session['warningMessage']
+        warningMessage = warningMessage.replace('\n','<br />')
+    else:
+        warningMessage = ''
+    request.session['warningMessage'] = ''
+    if 'infoMessage' in request.session:
+        infoMessage = request.session['infoMessage']
+        infoMessage = infoMessage.replace('\n','<br />')
+    else:
+        infoMessage = ''
+    request.session['infoMessage'] = ''
+    return errorMessage, warningMessage, infoMessage
+
 def home(request):
+    errorMessage, warningMessage, infoMessage = get_session_messages(request)
     return render(request,'base/base.html',{'nav_home':1,
+                                            'errorMessage':errorMessage,
+                                            'warningMessage':warningMessage,
+                                            'infoMessage':infoMessage,
                                             'adminName':adminName,
                                             'adminEmail':adminEmail,
                                             'siteVersion':siteVersion,
                                             'imsVersion':imsVersion,})
 
 def cart_help(request):
+    errorMessage, warningMessage, infoMessage = get_session_messages(request)
     return render(request,'base/cart_help.html',{'nav_help':1,
+                                                     'errorMessage':errorMessage,
+                                                     'warningMessage':warningMessage,
+                                                     'infoMessage':infoMessage,
                                             'adminName':adminName,
                                             'adminEmail':adminEmail,
                                             'siteVersion':siteVersion,
@@ -68,11 +97,15 @@ def handler400(request):
     return response
 
 def login(request, *args, **kwargs):
+    errorMessage, warningMessage, infoMessage = get_session_messages(request)
     template_response = auth_views.login(request, *args, **kwargs)
     if template_response.status_code == 302:
         # if we redirect, no need to change the response data
         return template_response
     template_response.context_data.update({
+                                           'errorMessage':errorMessage,
+                                            'warningMessage':warningMessage,
+                                            'infoMessage':infoMessage,
                                 'adminName':adminName,
                                 'adminEmail':adminEmail,
                                 'siteVersion':siteVersion,
@@ -80,83 +113,106 @@ def login(request, *args, **kwargs):
     return template_response
 
 def password_change(request, *args, **kwargs):
+    errorMessage, warningMessage, infoMessage = get_session_messages(request)
     post_change_redirect = request.GET.get('next',None)
     kwargs['post_change_redirect'] = post_change_redirect
-    request.session['infoMessage'] = 'Successfully changed password'
     template_response = auth_views.password_change(request, *args, **kwargs)
     if template_response.status_code == 302:
         # if we redirect, no need to change the response data
+        request.session['infoMessage'] = 'Successfully changed password'
         return template_response
-    print template_response.context_data['form']['new_password1']
     template_response.context_data.update({
-                                'adminName':adminName,
-                                'adminEmail':adminEmail,
-                                'siteVersion':siteVersion,
-                                'imsVersion':imsVersion,})
+                                           'errorMessage':errorMessage,
+                                            'warningMessage':warningMessage,
+                                            'infoMessage':infoMessage,
+						                    'adminName':adminName,
+						                    'adminEmail':adminEmail,
+						                    'siteVersion':siteVersion,
+						                    'imsVersion':imsVersion,})
     return template_response
 
 def password_change_done(request, *args, **kwargs):
+    errorMessage, warningMessage, infoMessage = get_session_messages(request)
     template_response = auth_views.password_change_done(request, *args, 
                                                         **kwargs)
     if template_response.status_code == 302:
         # if we redirect, no need to change the response data
         return template_response
     template_response.context_data.update({
-                                'adminName':adminName,
-                                'adminEmail':adminEmail,
-                                'siteVersion':siteVersion,
-                                'imsVersion':imsVersion,})
+                                           'errorMessage':errorMessage,
+                                            'warningMessage':warningMessage,
+                                            'infoMessage':infoMessage,
+						                    'adminName':adminName,
+						                    'adminEmail':adminEmail,
+						                    'siteVersion':siteVersion,
+						                    'imsVersion':imsVersion,})
     return template_response
 
 def password_reset(request, *args, **kwargs):
+    errorMessage, warningMessage, infoMessage = get_session_messages(request)
     template_response = auth_views.password_reset(request, *args, **kwargs)
     if template_response.status_code == 302:
         # if we redirect, no need to change the response data
         return template_response
     template_response.context_data.update({
-                                'adminName':adminName,
-                                'adminEmail':adminEmail,
-                                'siteVersion':siteVersion,
-                                'imsVersion':imsVersion,})
+                                           'errorMessage':errorMessage,
+                                            'warningMessage':warningMessage,
+                                            'infoMessage':infoMessage,
+							                'adminName':adminName,
+							                'adminEmail':adminEmail,
+							                'siteVersion':siteVersion,
+							                'imsVersion':imsVersion,})
     return template_response
 
 def password_reset_done(request, *args, **kwargs):
+    errorMessage, warningMessage, infoMessage = get_session_messages(request)
     template_response = auth_views.password_reset_done(request, *args, **kwargs)
     if template_response.status_code == 302:
         # if we redirect, no need to change the response data
         return template_response
     template_response.context_data.update({
-                                'adminName':adminName,
-                                'adminEmail':adminEmail,
-                                'siteVersion':siteVersion,
-                                'imsVersion':imsVersion,})
+                                           'errorMessage':errorMessage,
+                                            'warningMessage':warningMessage,
+                                            'infoMessage':infoMessage,
+						                    'adminName':adminName,
+						                    'adminEmail':adminEmail,
+						                    'siteVersion':siteVersion,
+						                    'imsVersion':imsVersion,})
     return template_response
 
 def password_reset_confirm(request, *args, **kwargs):
+    errorMessage, warningMessage, infoMessage = get_session_messages(request)
     post_reset_redirect = settings.LOGIN_URL
     kwargs['post_reset_redirect'] = post_reset_redirect
-    request.session['infoMessage'] = 'Successfully changed password'
     template_response = auth_views.password_reset_confirm(request, *args, **kwargs)
     if template_response.status_code == 302:
         # if we redirect, no need to change the response data
+        request.session['infoMessage'] = 'Successfully changed password'
         return template_response
     if match('unsuccessful',template_response.context_data['title']):
         request.session['errorMessage'] = template_response.context_data['title']
     template_response.context_data.update({
-                                'adminName':adminName,
-                                'adminEmail':adminEmail,
-                                'siteVersion':siteVersion,
-                                'imsVersion':imsVersion,})
+                                           'errorMessage':errorMessage,
+                                            'warningMessage':warningMessage,
+                                            'infoMessage':infoMessage,
+						                    'adminName':adminName,
+						                    'adminEmail':adminEmail,
+						                    'siteVersion':siteVersion,
+						                    'imsVersion':imsVersion,})
     return template_response
 
 def password_reset_complete(request, *args, **kwargs):
+    errorMessage, warningMessage, infoMessage = get_session_messages(request)
     template_response = auth_views.password_reset_complete(request, *args, **kwargs)
     if template_response.status_code == 302:
         # if we redirect, no need to change the response data
         return template_response
     template_response.context_data.update({
-                                'adminName':adminName,
-                                'adminEmail':adminEmail,
-                                'siteVersion':siteVersion,
-                                'imsVersion':imsVersion,})
+                                           'errorMessage':errorMessage,
+                                            'warningMessage':warningMessage,
+			                                'infoMessage':infoMessage,
+						                    'adminName':adminName,
+						                    'adminEmail':adminEmail,
+						                    'siteVersion':siteVersion,
+						                    'imsVersion':imsVersion,})
     return template_response

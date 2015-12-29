@@ -20,4 +20,5 @@ NOTE!! Messed up git commit of v1.5.0.  Most of it ended up --amend'ed to v1.4.0
 28/12/2015 Version 1.5.0:
 *   bf5d870 (HEAD, master) Updated to Django1.9 from 1.7
 29/12/2015 Version 1.5.1:
-* 97e1efb (HEAD, master) feat: Add password management features
+* 5a29a3e (HEAD, master) fix: Add session messages to registration views/templates
+* ab3c960 (origin/master) feat: Add password management features
