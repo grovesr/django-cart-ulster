@@ -27,3 +27,5 @@ NOTE!! Messed up git commit of v1.5.0.  Most of it ended up --amend'ed to v1.4.0
 * 169bddd (HEAD, master) fix: Issue with logging out for non-admin users
 01/21/2016 Version 1.5.3:
 * d4cacd3 (HEAD, master) feat: Remove display of warehouse location from product information
+01/22/2016 Version 1.5.4:
+* 411e8a1 (HEAD, master) feat: Remove IMS page, it's not used.  Redirect to Home if IMS page requested.
