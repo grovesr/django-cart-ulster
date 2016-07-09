@@ -11,4 +11,5 @@
 #VERSION=('1.5.1','29/12/2015','feat: Add password management features')
 #VERSION=('1.5.2','19/01/2016','feat: Fix logout issue with non-admin users')
 #VERSION=('1.5.3','21/01/2016','Remove display of warehouse location from product information')
-VERSION=('1.5.4','22/01/2016','Remove IMS page, its not used.  Redirect to Home if IMS page requested.')
+#VERSION=('1.5.4','22/01/2016','Remove IMS page, its not used.  Redirect to Home if IMS page requested.')
+VERSION=('1.5.5','09/07/2016','Replace robert.groves@redcross.org with robgroves0@gmail.com. Add secret settings for e-mail config.')
