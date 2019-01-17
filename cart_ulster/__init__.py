@@ -13,3 +13,4 @@
 #VERSION=('1.5.3','21/01/2016','Remove display of warehouse location from product information')
 #VERSION=('1.5.4','22/01/2016','Remove IMS page, its not used.  Redirect to Home if IMS page requested.')
 VERSION=('1.5.5','09/07/2016','Replace robert.groves@redcross.org with robgroves0@gmail.com. Add secret settings for e-mail config.')
+VERSION=('1.5.6','01/17/19','fix: change http:// to https:// when loading jquery to avoid mixed active content warnings')
